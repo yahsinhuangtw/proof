@@ -1,5 +1,20 @@
 import Mathlib
 
+theorem my_add_sq :
+    ∀ (a b : ℕ), (a + b) ^ 2 = a ^ 2 + 2 * a * b + b ^ 2 := by
+  intro a b
+  rw [sq]
+  rw [add_mul]
+  rw [mul_add]
+  rw [mul_add]
+  rw [← sq]
+  rw [← sq]
+  rw [← add_assoc]
+  rw [add_assoc (a := a ^ 2)]
+  rw [mul_comm (a := b)]
+  rw [← two_mul]
+  rw [← mul_assoc]
+
 theorem my_sub_sq :
     ∀ (a b : ℤ), (a - b) ^ 2 = a ^ 2 - 2 * a * b + b ^ 2 := by
   intro a b
