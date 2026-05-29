@@ -11,4 +11,13 @@ jobs:
 
     steps:
       - uses: actions/checkout@v5
+      - name: Cache Lake build
+        uses: actions/cache@v4
+        with:
+          path: .lake
+          key: ${{ runner.os }}-lake-${{ hashFiles('lake-manifest.json', 'lean-toolchain') }}
+          restore-keys: |
+            ${{ runner.os }}-lake-
       - uses: leanprover/lean-action@v1
+        with:
+          use-mathlib-cache: true
