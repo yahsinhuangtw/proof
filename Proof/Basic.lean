@@ -29,3 +29,9 @@ theorem my_sub_sq :
   rw [Int.sub_sub]
   rw [← two_mul]
   rw [← mul_assoc]
+
+theorem my_add_add_sq :
+    ∀ (a b c : ℕ), (a + b + c) ^ 2 =
+      a ^ 2 + b ^ 2 + c ^ 2 + 2 * a * b + 2 * b * c + 2 * a * c := by
+  intro a b c
+  sorry
